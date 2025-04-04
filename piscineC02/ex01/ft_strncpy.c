@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzapata- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 15:20:50 by mzapata-          #+#    #+#             */
-/*   Updated: 2025/04/04 12:14:35 by mzapata-         ###   ########.fr       */
+/*   Created: 2025/04/04 12:16:32 by mzapata-          #+#    #+#             */
+/*   Updated: 2025/04/04 13:10:37 by mzapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (src[i])
+	while (src[i] != '\0' && i < n)
 	{
 		dest[i] = src[i];
 		i++;
@@ -26,10 +26,12 @@ void	*ft_strcpy(char *dest, char *src)
 /*
 int	main(void)
 {
-	char	src[] = "Hello World";
-	char	dest[10];
+	char	src[] = "Hello Woooooorld!!";
+	char	dest[25];
+	unsigned int	n = 9;
 
-	ft_strcpy(dest, src);
-	printf("dest = %s\n", dest);
+	ft_strncpy(dest, src, n);
+	printf("%s\n", dest);
+	return (0);
 }
 */
