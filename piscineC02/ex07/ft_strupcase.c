@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzapata- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 12:16:32 by mzapata-          #+#    #+#             */
-/*   Updated: 2025/04/07 15:25:40 by mzapata-         ###   ########.fr       */
+/*   Created: 2025/04/07 15:00:51 by mzapata-          #+#    #+#             */
+/*   Updated: 2025/04/07 16:07:25 by mzapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strupcase(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (str[i])
 	{
-		dest[i] = src[i];
+		if (str[i] >= 'a' && str [i] <= 'z')
+		{
+			str[i] = str[i] - 32;
+		}
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (str);
 }
 /*
 int	main(void)
 {
-	char	src[] = "Hello Woooooorld!!";
-	char	dest[25];
-	unsigned int	n = 9;
+	char	str[] = "helloworld";
 
-	ft_strncpy(dest, src, n);
-	printf("%s\n", dest);
+	printf("%s\n", ft_strupcase(str));
 	return (0);
 }
 */

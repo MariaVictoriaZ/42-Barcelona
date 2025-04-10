@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzapata- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 12:16:32 by mzapata-          #+#    #+#             */
-/*   Updated: 2025/04/07 15:25:40 by mzapata-         ###   ########.fr       */
+/*   Created: 2025/04/08 11:55:47 by mzapata-          #+#    #+#             */
+/*   Updated: 2025/04/08 16:18:51 by mzapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_strcmp(char *s1, char *s2)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (s1[i] != s2[i])
+		{
+			return (s1[i] - s2[i]);
+		}
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (s1[i] - s2[i]);
 }
 /*
 int	main(void)
 {
-	char	src[] = "Hello Woooooorld!!";
-	char	dest[25];
-	unsigned int	n = 9;
+	char	str1[] = "hola";
+	char	str2[] = "Hola";
+	char	str3[] = "holanda";
+	char	str4[] = "holis";
 
-	ft_strncpy(dest, src, n);
-	printf("%s\n", dest);
+	printf("%d\n", ft_strcmp(str1, str2));
+	printf("%d\n", ft_strcmp(str3, str4));
 	return (0);
 }
 */

@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzapata- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 12:16:32 by mzapata-          #+#    #+#             */
-/*   Updated: 2025/04/07 15:25:40 by mzapata-         ###   ########.fr       */
+/*   Created: 2025/04/07 14:41:19 by mzapata-          #+#    #+#             */
+/*   Updated: 2025/04/07 15:27:54 by mzapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_str_is_printable(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	if (str[i] == '\0')
 	{
-		dest[i] = src[i];
+		return (1);
+	}
+	while (str[i])
+	{
+		if (!(str[i] >= 32 && str[i] <= 126))
+		{
+			return (0);
+		}
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (1);
 }
 /*
 int	main(void)
 {
-	char	src[] = "Hello Woooooorld!!";
-	char	dest[25];
-	unsigned int	n = 9;
+	char	str1[] = "HElloWorld23";
+	char	str2[] = "hello\nworld";
 
-	ft_strncpy(dest, src, n);
-	printf("%s\n", dest);
+	printf("%d\n", ft_str_is_printable(str1));
+	printf("%d\n", ft_str_is_printable(str2));
 	return (0);
 }
 */

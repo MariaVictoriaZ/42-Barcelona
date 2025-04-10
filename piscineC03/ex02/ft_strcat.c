@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzapata- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 12:16:32 by mzapata-          #+#    #+#             */
-/*   Updated: 2025/04/07 15:25:40 by mzapata-         ###   ########.fr       */
+/*   Created: 2025/04/08 16:21:11 by mzapata-          #+#    #+#             */
+/*   Updated: 2025/04/08 17:04:33 by mzapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strcat(char *dest, char *src)
 {
-	unsigned int	i;
+	int	i;
+	int	j;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	j = 0;
+	while (dest[i] != '\0')
 	{
-		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
+	while (src[j] != '\0')
 	{
-		dest[i] = '\0';
+		dest[i] = src[j];
 		i++;
+		j++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
 /*
 int	main(void)
 {
-	char	src[] = "Hello Woooooorld!!";
-	char	dest[25];
-	unsigned int	n = 9;
+	char	dest[50] = "Hola, ";
+	char	src[] = "mundo!";
 
-	ft_strncpy(dest, src, n);
-	printf("%s\n", dest);
+	printf("%s\n", ft_strcat(dest, src));
 	return (0);
 }
 */

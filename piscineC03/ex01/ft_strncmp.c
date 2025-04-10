@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzapata- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 12:16:32 by mzapata-          #+#    #+#             */
-/*   Updated: 2025/04/07 15:25:40 by mzapata-         ###   ########.fr       */
+/*   Created: 2025/04/08 15:32:16 by mzapata-          #+#    #+#             */
+/*   Updated: 2025/04/08 16:19:54 by mzapata-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (i < n && s1[i] != '\0' && s2[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (s1[i] != s2[i])
+		{
+			return (s1[i] - s2[i]);
+		}
 		i++;
 	}
-	while (i < n)
+	if (i < n)
 	{
-		dest[i] = '\0';
-		i++;
+		return (s1[i] - s2[i]);
 	}
-	return (dest);
+	return (0);
 }
 /*
 int	main(void)
 {
-	char	src[] = "Hello Woooooorld!!";
-	char	dest[25];
-	unsigned int	n = 9;
+	char	str1[] = "hola";
+	char	str2[] = "Hola";
 
-	ft_strncpy(dest, src, n);
-	printf("%s\n", dest);
-	return (0);
+	printf("%d\n", ft_strncmp(str1, str2, 3));
 }
 */
